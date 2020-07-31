@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <div class="navbar">
+  <a href="index.html">Home Page</a>
+  <a href="second.html">Second</a>
+  </div>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="gallary.css" rel="stylesheet" 
+</head>
+
+<body>
+
+
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src="gallary/MOMMY PIG.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <img src="gallary/EAR PEPPA.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+    <img src="gallary/LOST PEPPA.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+    <img src="gallary/MAD PEPPA.png" style="width:100%">
+  </div>
+
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="gallary/MOMMY PIG.jpg"  style="width:100%" onclick="currentSlide(1)" alt="Thanos Mommy Pig">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="gallary/EAR PEPPA.jpg"  style="width:100%" onclick="currentSlide(2)" alt="Dumb Peppa and George">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="gallary/LOST PEPPA.jpg" style="width:100%" onclick="currentSlide(3)" alt="peppa drops teddy">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="gallary/ MAD PEPPA.png" style="width:100%" onclick="currentSlide(4)" alt="mad peppa">
+    </div>
+ 
+  </div>
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+    
+</body>
+</html>
